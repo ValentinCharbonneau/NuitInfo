@@ -1,3 +1,11 @@
+* {
+  color: white;
+}
+
+body{
+  background: #070b2c;
+}
+
 .hvr-underline-from-left {
     display: inline-block;
     vertical-align: middle;

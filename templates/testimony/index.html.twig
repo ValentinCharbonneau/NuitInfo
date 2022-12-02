@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TestimonyController!{% endblock %}
+
+{% block body %}
+        <div class="container">
+            <p class="display-1">
+                Témoigner
+            </p>
+            <hr>
+            <h2>Partagez votre témoignage afin de les publier en jeu</h2>
+            <hr>
+            <div class="container">
+                <form>
+                   <div class="row mb-3">
+                       <div class="col-8">
+                         <input type="text" class="form-control" placeholder=" Nom (facultatif)" >
+                       </div>
+                       <div class="col-4">
+                         <input type="number" class="form-control" placeholder="Age" required="required">
+                       </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <textarea class="form-control" placeholder="Témoignage" required="required" rows="5"></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Envoyer</button>
+                   </div>
+               </form>
+               <hr>
+                <p>Votre témoignage pourra être posté en jeu dans le but de libérer la parole autour de la transmission des IST. Vous pouvez parler de votre expérience ou de celle d'un proche. L'objectif est de discuter des IST sans jugement afin de mieux les combattre. Vous pouvez expliquer comment vous avez contracté l'IST, quels soucis cela a engendré et comment vous vous êtes soigné.</p>
+
+            </div>
+         </div>
+{% endblock %}
