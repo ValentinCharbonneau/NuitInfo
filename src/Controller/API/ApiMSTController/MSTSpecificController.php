@@ -29,8 +29,10 @@ class MSTSpecificController extends AbstractController
             '_api_resource_class' => MST::class,
         ],
     )]
-    public function __invoke(MST $data): JsonResponse
+    public function __invoke(string  $name): JsonResponse
     {
+        $data = $this->mstRepository->findOneBy(['name' => urldecode($name)]);
+
         $context = (new ObjectNormalizerContextBuilder())
                 ->withGroups('mst:read')
                 ->toArray();

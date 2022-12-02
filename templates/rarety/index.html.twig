@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rarety index{% endblock %}
+
+{% block body %}
+    <h1>Rarety index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rarety in rareties %}
+            <tr>
+                <td>{{ rarety.id }}</td>
+                <td>{{ rarety.label }}</td>
+                <td>
+                    <a href="{{ path('app_rarety_show', {'id': rarety.id}) }}">show</a>
+                    <a href="{{ path('app_rarety_edit', {'id': rarety.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_rarety_new') }}">Create new</a>
+{% endblock %}
