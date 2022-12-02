@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Témoignage{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Age</th>
+      <th scope="col">Témoignage</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for test in temoignages %}
+        <tr>
+            <td>{{ test.Name }}</td>
+            <td>{{ test.Age }}</td>
+            <td>{{ test.Content }}</td>
+            <td><a href="#" class="btn btn-success">OUI</a> <a href="#" class="btn btn-danger">NON</a></td>
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}
