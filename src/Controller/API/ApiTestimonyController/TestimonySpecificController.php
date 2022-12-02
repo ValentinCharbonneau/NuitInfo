@@ -35,7 +35,10 @@ class TestimonySpecificController extends AbstractController
                     ->withGroups('testimony:read')
                     ->toArray();
 
-            return new JsonResponse(json_decode($this->serializerInterface->serialize($data, 'json', $context)));
+            $result = json_decode($this->serializerInterface->serialize($data, 'json', $context));
+            $result->MST = $data->getMST()->getName();
+
+            return new JsonResponse($result);
         }
         else
         {

@@ -5,6 +5,8 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\MST;
+use App\Repository\MSTRepository;
 
 class DefaultController extends AbstractController
 {
@@ -13,9 +15,14 @@ class DefaultController extends AbstractController
     {
         return $this->render('default/index.html.twig');
     }
+
     #[Route('/presentation', name: 'app_presentation')]
-    public function presentation(): Response
+    public function presentation(MSTRepository $mSTRepository): Response
     {
-        return $this->render('default/presentation.html.twig');
+        $msts = $mSTRepository->findAll();
+
+        $mst = $msts[rand(0, 6)];
+
+        return $this->render('default/presentation.html.twig', ['mst' => $mst]);
     }
 }
