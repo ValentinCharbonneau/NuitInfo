@@ -38,7 +38,9 @@ class TestimonyAllController extends AbstractController
         {
             if ($testimony->isValidate())
             {
-                array_push($result, json_decode($this->serializerInterface->serialize($testimony, 'json', $context)));
+                $interRes = json_decode($this->serializerInterface->serialize($testimony, 'json', $context));
+                $interRes->MST = $testimony->getMST()->getName();
+                array_push($result, $interRes);
             }
         }
 

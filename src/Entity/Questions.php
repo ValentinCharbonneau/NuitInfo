@@ -18,7 +18,7 @@ class Questions
     #[ORM\Column(length: 255)]
     private ?string $label = null;
 
-    #[ORM\OneToMany(mappedBy: 'questions', targetEntity: Choice::class)]
+    #[ORM\OneToMany(mappedBy: 'questions', cascade: ['persist'] ,targetEntity: Choice::class)]
     private Collection $proposal;
 
     #[ORM\OneToOne(inversedBy: 'question', cascade: ['persist', 'remove'])]
@@ -27,10 +27,14 @@ class Questions
     #[ORM\ManyToOne(inversedBy: 'questions')]
     private ?Cards $win = null;
 
+    #[ORM\OneToMany(mappedBy: 'proposal', targetEntity: Choice::class)]
+    private Collection $choices;
+
     public function __construct()
     {
-        $this->goodAnswer = new ArrayCollection();
+        $this->goodAnswer = new Choice();
         $this->proposal = new ArrayCollection();
+        $this->choices = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -100,6 +104,36 @@ class Questions
     public function setWin(?Cards $win): self
     {
         $this->win = $win;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Choice>
+     */
+    public function getChoices(): Collection
+    {
+        return $this->choices;
+    }
+
+    public function addChoice(Choice $choice): self
+    {
+        if (!$this->choices->contains($choice)) {
+            $this->choices->add($choice);
+            $choice->setProposal($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChoice(Choice $choice): self
+    {
+        if ($this->choices->removeElement($choice)) {
+            // set the owning side to null (unless already changed)
+            if ($choice->getProposal() === $this) {
+                $choice->setProposal(null);
+            }
+        }
 
         return $this;
     }

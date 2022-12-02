@@ -3,33 +3,26 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Doctrine\Persistence\ManagerRegistry;
-use App\Entity\MST;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\MST;
+use App\Repository\MSTRepository;
 
 class DefaultController extends AbstractController
 {
-    #[Route('/default', name: 'app_default')]
+    #[Route('/', name: 'app_home')]
     public function index(): Response
     {
-<<<<<<< Updated upstream
-        return $this->render('default/index.html.twig', [
-            'controller_name' => 'DefaultController',
-=======
         return $this->render('default/index.html.twig');
     }
+
     #[Route('/presentation', name: 'app_presentation')]
-    public function presentation(ManagerRegistry $doctrine): Response
+    public function presentation(MSTRepository $mSTRepository): Response
     {
-        $number = rand(1,7);
-        $mst = $doctrine->getRepository(MST::class)->find($number);
+        $msts = $mSTRepository->findAll();
 
+        $mst = $msts[rand(0, 6)];
 
-        return $this->render('default/presentation.html.twig', [
-            "mst" => $mst
->>>>>>> Stashed changes
-        ]);
+        return $this->render('default/presentation.html.twig', ['mst' => $mst]);
     }
-    
 }

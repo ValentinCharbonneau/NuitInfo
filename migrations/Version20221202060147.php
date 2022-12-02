@@ -10,11 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-<<<<<<< Updated upstream:migrations/Version20221202020934.php
-final class Version20221202020934 extends AbstractMigration
-=======
-final class Version20221202045909 extends AbstractMigration
->>>>>>> Stashed changes:migrations/Version20221202045909.php
+final class Version20221202060147 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -27,7 +23,8 @@ final class Version20221202045909 extends AbstractMigration
         $this->addSql('CREATE TABLE cards (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, id_rarety_id INTEGER DEFAULT NULL, id_mst_id INTEGER DEFAULT NULL, CONSTRAINT FK_4C258FD483092F FOREIGN KEY (id_rarety_id) REFERENCES rarety (id) NOT DEFERRABLE INITIALLY IMMEDIATE, CONSTRAINT FK_4C258FDE0B0B93C FOREIGN KEY (id_mst_id) REFERENCES mst (id) NOT DEFERRABLE INITIALLY IMMEDIATE)');
         $this->addSql('CREATE INDEX IDX_4C258FD483092F ON cards (id_rarety_id)');
         $this->addSql('CREATE INDEX IDX_4C258FDE0B0B93C ON cards (id_mst_id)');
-        $this->addSql('CREATE TABLE choice (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, label VARCHAR(255) NOT NULL)');
+        $this->addSql('CREATE TABLE choice (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, proposal_id INTEGER DEFAULT NULL, label VARCHAR(255) NOT NULL, CONSTRAINT FK_C1AB5A92F4792058 FOREIGN KEY (proposal_id) REFERENCES questions (id) NOT DEFERRABLE INITIALLY IMMEDIATE)');
+        $this->addSql('CREATE INDEX IDX_C1AB5A92F4792058 ON choice (proposal_id)');
         $this->addSql('CREATE TABLE mst (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(40) NOT NULL, description CLOB NOT NULL, mortality DOUBLE PRECISION DEFAULT NULL, transmission VARCHAR(255) NOT NULL, text VARCHAR(255) NOT NULL, treatment VARCHAR(255) NOT NULL)');
         $this->addSql('CREATE TABLE questions (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, good_answer_id INTEGER DEFAULT NULL, win_id INTEGER DEFAULT NULL, label VARCHAR(255) NOT NULL, CONSTRAINT FK_8ADC54D5AFC6C4EA FOREIGN KEY (good_answer_id) REFERENCES choice (id) NOT DEFERRABLE INITIALLY IMMEDIATE, CONSTRAINT FK_8ADC54D5713E15F4 FOREIGN KEY (win_id) REFERENCES cards (id) NOT DEFERRABLE INITIALLY IMMEDIATE)');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_8ADC54D5AFC6C4EA ON questions (good_answer_id)');

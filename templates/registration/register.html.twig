@@ -3,7 +3,49 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+<div class="container pt-3 mt-lg-5 col-lg-5 mx-auto">
+    {{ form_start(registrationForm) }}
+        <div class="card bg-dark shadow">
+            <div class="card-body">
+                {% if app.user %}
+                    <div class="mb-3">
+                        Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">se déconnecter</a>.
+                    </div>
+                {% endif %}
+
+                <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
+
+                <hr>
+
+                <label for="username">Nom d'utilisateur</label>
+                {{ form_widget(registrationForm.username, {'attr': {'class': 'form-control'}}) }}
+                
+                <label class="mt-2" for="password">Mot de passe</label>
+                {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+
+                <div class="checkbox my-3 row">
+                    <label class="col">
+                        {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input'}}) }} Accepter les termes
+                    </label>
+                    <div class="col-12 col-lg"></div>
+                    <p class="col text-muted my-auto">Déjà inscrit ? <a href={{ path("app_login") }} class="link-info">Connectez-vous.</a></p>
+                </div>
+
+                <button class="btn btn-lg btn-primary" type="submit">
+                    Inscription
+                </button>
+            </div>
+        </div>
+    {{ form_end(registrationForm) }}
+</div>
+
+
+
+
+
+
+
+    {# <h1>Register</h1>
 
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.username) }}
@@ -13,5 +55,5 @@
         {{ form_row(registrationForm.agreeTerms) }}
 
         <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+    {{ form_end(registrationForm) }} #}
 {% endblock %}

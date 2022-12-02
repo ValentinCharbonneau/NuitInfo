@@ -1,41 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Testimony index{% endblock %}
+{% block title %}Témoignage{% endblock %}
 
 {% block body %}
-    <h1>Testimony index</h1>
+        <div class="container">
+            <p class="display-1">
+                Témoigner
+            </p>
+            <p class="lead">Partagez votre témoignage afin de les publier en jeu</p>
+            <hr>
+            <div class="container">
+                <form>
+                   <div class="row mb-3">
+                       <div class="col-8">
+                         <input type="text" class="form-control" placeholder=" Nom (facultatif)" >
+                       </div>
+                       <div class="col-4">
+                         <input type="number" class="form-control" placeholder="Age" required="required">
+                       </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <textarea class="form-control" placeholder="Témoignage" required="required" rows="5"></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Envoyer</button>
+                   </div>
+               </form>
+               <hr>
+                <p>Votre témoignage pourra être posté en jeu dans le but de libérer la parole autour de la transmission des IST. Vous pouvez parler de votre expérience ou de celle d'un proche. L'objectif est de discuter des IST sans jugement afin de mieux les combattre. Vous pouvez expliquer comment vous avez contracté l'IST, quels soucis cela a engendré et comment vous vous êtes soigné.</p>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Content</th>
-                <th>Validate</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for testimony in testimonies %}
-            <tr>
-                <td>{{ testimony.id }}</td>
-                <td>{{ testimony.name }}</td>
-                <td>{{ testimony.age }}</td>
-                <td>{{ testimony.content }}</td>
-                <td>{{ testimony.validate ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a href="{{ path('app_testimony_show', {'id': testimony.id}) }}">show</a>
-                    <a href="{{ path('app_testimony_edit', {'id': testimony.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_testimony_new') }}">Create new</a>
+            </div>
+         </div>
 {% endblock %}
