@@ -1,64 +1,105 @@
-const { Collection, Client, Events, GatewayIntentBits } = require('discord.js');
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-const { REST, Routes } = require('discord.js');
-const { token, clientId } = require('./config.json');
-const fs = require('node:fs');
-const path = require("node:path");
-const rest = new REST({ version: '10' }).setToken(token);
-const commands = [];
-client.commands = new Collection();
+const { SlashCommandBuilder, EmbedBuilder, Embed } = require('discord.js');
+const http = require('http2');
+const url = "http://192.168.10.104:8000";
+const axios = require('axios');
+const { randomInt } = require('crypto');
+var id = 0;
+
+module.exports = {
+	data: new SlashCommandBuilder()
+		.setName('temoignage')
+		.setDescription('Provides information about the server.')
+		.addSubcommand(add =>
+			add.setName("add")
+				.setDescription("Ajouter un témoignage")
+				.addStringOption(option =>
+					option.setName('mst')
+						.setDescription('Quel MST ou IST')
+						.setRequired(true)
+						.addChoices(
+							{ name: 'Sida', value: 'Sida' },
+							{ name: 'Hépatite B', value: 'Hépatite B' },
+							{ name: 'Herpès', value: 'Herpès' },
+							{ name: 'Syphilis', value: 'Syphilis' },
+							{ name: 'Mycose vaginale', value: 'Mycose vaginale' },
+							{ name: 'Gonorrhée (chaude-pisse)', value: 'Gonorrhée (chaude-pisse)' },
+							{ name: 'Papillomavirus', value: 'Papillomavirus' },
+						))
+				.addStringOption(option =>
+					option.setName('prenom')
+						.setDescription('Votre prénom?')
+						.setRequired(true))
+				.addIntegerOption(option =>
+					option.setName('age')
+						.setDescription('Quel est votre âge ?')
+						.setRequired(true))
+				.addStringOption(option =>
+					option.setName('content')
+						.setDescription('Racontez votre histoire.')
+						.setRequired(true)))
+		.addSubcommand(view =>
+			view.setName("view")
+				.setDescription("Voir un témoignage aléatoire.")
+				.addStringOption(mst =>
+					mst.setName('mst_name')
+						.setDescription("Chosissez la MST dont vous voulez voir un témoignage aléatoire.")
+						.setChoices(
+							{ name: 'Sida', value: 'Sida' },
+							{ name: 'Hépatite B', value: 'Hépatite B' },
+							{ name: 'Herpès', value: 'Herpès' },
+							{ name: 'Syphilis', value: 'Syphilis' },
+							{ name: 'Mycose vaginale', value: 'Mycose vaginale' },
+							{ name: 'Gonorrhée (chaude-pisse)', value: 'Gonorrhée (chaude-pisse)' },
+							{ name: 'Papillomavirus', value: 'Papillomavirus' },
+						)
+						.setRequired(true))),
+
+	async execute(interaction) {
+		if (interaction.options.getSubcommand() === "add") {
+			axios.post(`${url}/api/testimony`, {
+				name: interaction.options.getString("prenom"),
+				age: interaction.options.getInteger("age"),
+				MST: interaction.options.getString("mst"),
+				content: interaction.options.getString("content")
+			})
+				.then(function (response) {
+					console.log(response);
+				})
+				.catch(function (error) {
+					console.log(error);
+				});
+			await interaction.reply({ content: `Votre témoignage a bien été pris en compte.`, ephemeral: true });
+		}
+		if (interaction.options.getSubcommand() === "view") {
+			let embed = new EmbedBuilder()
+			axios.get(encodeURI(`${url}/api/testimony`)).then(response => {
+				let list = [];
+				for (let element of response.data) {
+					if (element.MST == interaction.options.getString("mst_name")) {
+						list.push(element)
+					}
+				}
+
+				id = list[randomInt(0, list.length)];
 
 
-const commandsPath = path.join(__dirname, 'commands');
-const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
-for (const file of commandFiles) {
-	const filePath = path.join(commandsPath, file);
-    const command = require(filePath);
-	commands.push(command.data.toJSON());
-	if ('data' in command && 'execute' in command) {
-		client.commands.set(command.data.name, command);
-	} else {
-		console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
-	}
-}
+			}).then(resp => {
+				axios.get(encodeURI(`${url}/api/testimony/${id.id}`)).then(r => {
 
-client.once(Events.ClientReady, c => {
-	console.log("Nuit info bot démarré");
-});
+					var embed = new EmbedBuilder()
+						.setAuthor({ name: `Témoignage sur : ${r.data.MST}` })
+						.setImage("https://i0.wp.com/www.coalitionplus.org/wp-content/uploads/2021/09/V2B-BANNIERE-FB-851X315-HD-scaled.jpg")
+						.setThumbnail("https://pvsq.org/wp-content/uploads/2019/08/finalPlan-de-travail-4.png").addFields(
+							{ name: "Individu", value: `${r.data.name}  ${r.data.age}ans` },
+							{ name: "Témoignage", value: r.data.content }
 
+						)
+					interaction.reply({ embeds: [embed] })
+
+				})
+			})
 
 
-client.on(Events.InteractionCreate, async interaction => {
-	if (!interaction.isChatInputCommand()) return;
-
-	const command = client.commands.get(interaction.commandName);
-	if (!command) {
-		console.error(`No command matching ${interaction.commandName} was found.`);
-		return;
-	}
-
-	try {
-		await command.execute(interaction);
-	} catch (error) {
-		console.error(error);
-		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
-	}
-});
-
-(async () => {
-	try {
-		console.log(`Started refreshing ${commands.length} application (/) commands.`);
-
-		const data = await rest.put(
-			Routes.applicationCommands(clientId),
-			{ body: commands },
-		);
-
-		console.log(`Successfully reloaded ${data.length} application (/) commands.`);
-	} catch (error) {
-		console.error(error);
-	}
-})();
-
-
-client.login(token);
+		}
+	},
+};
