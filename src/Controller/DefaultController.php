@@ -15,7 +15,7 @@ class DefaultController extends AbstractController
     {
         return $this->render('default/index.html.twig');
     }
-    #[Route('/presentation', name: 'app_presentation')]
+    #[Route('/', name: 'app_presentation')]
     public function presentation(ManagerRegistry $doctrine): Response
     {
         $number = rand(1,7);
