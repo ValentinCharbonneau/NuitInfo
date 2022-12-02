@@ -23,6 +23,8 @@ class DefaultController extends AbstractController
 
         $mst = $msts[rand(0, 6)];
 
-        return $this->render('default/presentation.html.twig', ['mst' => $mst]);
+        return $this->render('default/presentation.html.twig', [
+            "mst" => $mst
+        ]);
     }
 }
