@@ -11,12 +11,16 @@ use App\Repository\MSTRepository;
 class DefaultController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(): Response
+    public function index(MSTRepository $mSTRepository): Response
     {
-        return $this->render('default/index.html.twig');
+        $msts = $mSTRepository->findAll();
+
+        $mst = $msts[rand(0, 6)];
+
+        return $this->render('default/pardon.html.twig', ['mst' => $mst]);
     }
 
-    #[Route('/presentation', name: 'app_presentation')]
+    // #[Route('/presentation', name: 'app_presentation')]
     public function presentation(MSTRepository $mSTRepository): Response
     {
         $msts = $mSTRepository->findAll();
