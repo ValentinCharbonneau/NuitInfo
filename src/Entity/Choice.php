@@ -19,6 +19,9 @@ class Choice
     #[ORM\OneToOne(mappedBy: 'goodAnswer', cascade: ['persist', 'remove'])]
     private ?Questions $question = null;
 
+    #[ORM\ManyToOne(inversedBy: 'choices')]
+    private ?Questions $proposal = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -54,6 +57,18 @@ class Choice
         }
 
         $this->question = $question;
+
+        return $this;
+    }
+
+    public function getProposal(): ?Questions
+    {
+        return $this->proposal;
+    }
+
+    public function setProposal(?Questions $proposal): self
+    {
+        $this->proposal = $proposal;
 
         return $this;
     }
