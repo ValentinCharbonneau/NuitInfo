@@ -13,10 +13,6 @@ class DefaultController extends AbstractController
     #[Route('/default', name: 'app_default')]
     public function index(): Response
     {
-<<<<<<< Updated upstream
-        return $this->render('default/index.html.twig', [
-            'controller_name' => 'DefaultController',
-=======
         return $this->render('default/index.html.twig');
     }
     #[Route('/presentation', name: 'app_presentation')]
@@ -28,7 +24,6 @@ class DefaultController extends AbstractController
 
         return $this->render('default/presentation.html.twig', [
             "mst" => $mst
->>>>>>> Stashed changes
         ]);
     }
     
