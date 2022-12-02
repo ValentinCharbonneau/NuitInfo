@@ -21,13 +21,9 @@ class TestimonyController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_testimony_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'app_testimony', methods: ['GET', 'POST'])]
     public function new(Request $request, TestimonyRepository $testimonyRepository): Response
     {
-        if(!$this->isGranted('ROLE_ADMIN'))
-        {
-            return $this->redirectToRoute('app_login', [], Response::HTTP_SEE_OTHER);
-        }
         $testimony = new Testimony();
         $form = $this->createForm(TestimonyType::class, $testimony);
         $form->handleRequest($request);
