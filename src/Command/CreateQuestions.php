@@ -41,12 +41,14 @@ class CreateQuestions extends Command
         
         $oneChoice = new Choice();// On fait un nouveau Choice
         $secondChoice = new Choice();
+        $thirdChoice = new Choice();
         $oneRarety = new Rarety();// On fait un nouveau Rarety
         $oneCard = new Cards();// On fait un nouveau Cards
         $newQuestion = new Questions();// On fait un nouveau Questions
 
         $oneChoice->setLabel("5 Juin 1981");
         $secondChoice->setLabel("10 mai 2000");
+        $thirdChoice->setLabel("15 juillet 2004");
         $oneRarety->setLabel("Légendaire");
 
         $oneCard->setIdRarety($oneRarety->getId());
@@ -59,6 +61,7 @@ class CreateQuestions extends Command
         $newQuestion->setLabel("Quel est la date du premier signalement du sida ?");
         $newQuestion->addProposal($oneChoice);
         $newQuestion->addProposal($secondChoice);
+        $newQuestion->addProposal($thirdChoice);
         $newQuestion->setWin(new Cards());
 
         $oneCard->addQuestion($newQuestion);
@@ -66,7 +69,7 @@ class CreateQuestions extends Command
         $oneChoice->setQuestion($newQuestion);
         $secondChoice->setQuestion($newQuestion);
         $oneChoice->setProposal($newQuestion);
-        $secondChoice->setProposal($newQuestion);
+        $thirdChoice->setProposal($newQuestion);
 
         $newQuestion->setGoodAnswer($oneChoice);
 
@@ -74,6 +77,7 @@ class CreateQuestions extends Command
         $this->entityManagerInterface->persist($newQuestion);
         $this->entityManagerInterface->persist($oneChoice);
         $this->entityManagerInterface->persist($secondChoice);
+        $this->entityManagerInterface->persist($thirdChoice);
         $this->entityManagerInterface->persist($oneRarety);
         $this->entityManagerInterface->persist($oneCard);
         
@@ -84,13 +88,15 @@ class CreateQuestions extends Command
         
         $oneChoice = new Choice();// On fait un nouveau Choice
         $secondChoice = new Choice();
+        $thirdChoice = new Choice();
         $oneRarety = new Rarety();// On fait un nouveau Rarety
         $oneCard = new Cards();// On fait un nouveau Cards
         $newQuestion = new Questions();// On fait un nouveau Questions
 
         $oneChoice->setLabel("français");
         $secondChoice->setLabel("québecois");
-        $oneRarety->setLabel("brésilien");
+        $thirdChoice->setLabel("brésilien");
+        $oneRarety->setLabel("Légendaire");
 
         $oneCard->setIdRarety($oneRarety->getId());
         $oneCard->setIdMST($oneMST);
@@ -109,7 +115,7 @@ class CreateQuestions extends Command
         $oneChoice->setQuestion($newQuestion);
         $secondChoice->setQuestion($newQuestion);
         $oneChoice->setProposal($newQuestion);
-        $secondChoice->setProposal($newQuestion);
+        $thirdChoice->setProposal($newQuestion);
 
         $newQuestion->setGoodAnswer($oneChoice);
 
@@ -117,6 +123,7 @@ class CreateQuestions extends Command
         $this->entityManagerInterface->persist($newQuestion);
         $this->entityManagerInterface->persist($oneChoice);
         $this->entityManagerInterface->persist($secondChoice);
+        $this->entityManagerInterface->persist($thirdChoice);
         $this->entityManagerInterface->persist($oneRarety);
         $this->entityManagerInterface->persist($oneCard);
         
@@ -156,7 +163,7 @@ class CreateQuestions extends Command
         $oneChoice->setQuestion($newQuestion);
         $secondChoice->setQuestion($newQuestion);
         $oneChoice->setProposal($newQuestion);
-        $secondChoice->setProposal($newQuestion);
+        $thirdChoice->setProposal($newQuestion);
 
         $newQuestion->setGoodAnswer($oneChoice);
 
@@ -164,6 +171,7 @@ class CreateQuestions extends Command
         $this->entityManagerInterface->persist($newQuestion);
         $this->entityManagerInterface->persist($oneChoice);
         $this->entityManagerInterface->persist($secondChoice);
+        $this->entityManagerInterface->persist($thirdChoice);
         $this->entityManagerInterface->persist($oneRarety);
         $this->entityManagerInterface->persist($oneCard);
         
@@ -204,7 +212,7 @@ class CreateQuestions extends Command
         $oneChoice->setQuestion($newQuestion);
         $secondChoice->setQuestion($newQuestion);
         $oneChoice->setProposal($newQuestion);
-        $secondChoice->setProposal($newQuestion);
+        $thirdChoice->setProposal($newQuestion);
 
         $newQuestion->setGoodAnswer($oneChoice);
 
@@ -212,6 +220,7 @@ class CreateQuestions extends Command
         $this->entityManagerInterface->persist($newQuestion);
         $this->entityManagerInterface->persist($oneChoice);
         $this->entityManagerInterface->persist($secondChoice);
+        $this->entityManagerInterface->persist($thirdChoice);
         $this->entityManagerInterface->persist($oneRarety);
         $this->entityManagerInterface->persist($oneCard);
         
@@ -252,7 +261,7 @@ class CreateQuestions extends Command
         $oneChoice->setQuestion($newQuestion);
         $secondChoice->setQuestion($newQuestion);
         $oneChoice->setProposal($newQuestion);
-        $secondChoice->setProposal($newQuestion);
+        $thirdChoice->setProposal($newQuestion);
 
         $newQuestion->setGoodAnswer($secondChoice);
 
@@ -260,6 +269,7 @@ class CreateQuestions extends Command
         $this->entityManagerInterface->persist($newQuestion);
         $this->entityManagerInterface->persist($oneChoice);
         $this->entityManagerInterface->persist($secondChoice);
+        $this->entityManagerInterface->persist($thirdChoice);
         $this->entityManagerInterface->persist($oneRarety);
         $this->entityManagerInterface->persist($oneCard);
         
@@ -300,7 +310,7 @@ class CreateQuestions extends Command
         $oneChoice->setQuestion($newQuestion);
         $secondChoice->setQuestion($newQuestion);
         $oneChoice->setProposal($newQuestion);
-        $secondChoice->setProposal($newQuestion);
+        $thirdChoice->setProposal($newQuestion);
 
         $newQuestion->setGoodAnswer($oneChoice);
 
@@ -308,6 +318,7 @@ class CreateQuestions extends Command
         $this->entityManagerInterface->persist($newQuestion);
         $this->entityManagerInterface->persist($oneChoice);
         $this->entityManagerInterface->persist($secondChoice);
+        $this->entityManagerInterface->persist($thirdChoice);
         $this->entityManagerInterface->persist($oneRarety);
         $this->entityManagerInterface->persist($oneCard);
         
@@ -349,7 +360,7 @@ class CreateQuestions extends Command
         $oneChoice->setQuestion($newQuestion);
         $secondChoice->setQuestion($newQuestion);
         $oneChoice->setProposal($newQuestion);
-        $secondChoice->setProposal($newQuestion);
+        $thirdChoice->setProposal($newQuestion);
 
         $newQuestion->setGoodAnswer($thirdChoice);
 
@@ -357,6 +368,7 @@ class CreateQuestions extends Command
         $this->entityManagerInterface->persist($newQuestion);
         $this->entityManagerInterface->persist($oneChoice);
         $this->entityManagerInterface->persist($secondChoice);
+        $this->entityManagerInterface->persist($thirdChoice);
         $this->entityManagerInterface->persist($oneRarety);
         $this->entityManagerInterface->persist($oneCard);
         
@@ -396,7 +408,7 @@ class CreateQuestions extends Command
         $oneChoice->setQuestion($newQuestion);
         $secondChoice->setQuestion($newQuestion);
         $oneChoice->setProposal($newQuestion);
-        $secondChoice->setProposal($newQuestion);
+        $thirdChoice->setProposal($newQuestion);
 
         $newQuestion->setGoodAnswer($oneChoice);
 
@@ -404,6 +416,7 @@ class CreateQuestions extends Command
         $this->entityManagerInterface->persist($newQuestion);
         $this->entityManagerInterface->persist($oneChoice);
         $this->entityManagerInterface->persist($secondChoice);
+        $this->entityManagerInterface->persist($thirdChoice);
         $this->entityManagerInterface->persist($oneRarety);
         $this->entityManagerInterface->persist($oneCard);
         
@@ -445,7 +458,7 @@ class CreateQuestions extends Command
         $oneChoice->setQuestion($newQuestion);
         $secondChoice->setQuestion($newQuestion);
         $oneChoice->setProposal($newQuestion);
-        $secondChoice->setProposal($newQuestion);
+        $thirdChoice->setProposal($newQuestion);
 
         $newQuestion->setGoodAnswer($oneChoice);
 
@@ -453,6 +466,7 @@ class CreateQuestions extends Command
         $this->entityManagerInterface->persist($newQuestion);
         $this->entityManagerInterface->persist($oneChoice);
         $this->entityManagerInterface->persist($secondChoice);
+        $this->entityManagerInterface->persist($thirdChoice);
         $this->entityManagerInterface->persist($oneRarety);
         $this->entityManagerInterface->persist($oneCard);
         
@@ -492,7 +506,7 @@ class CreateQuestions extends Command
         $oneChoice->setQuestion($newQuestion);
         $secondChoice->setQuestion($newQuestion);
         $oneChoice->setProposal($newQuestion);
-        $secondChoice->setProposal($newQuestion);
+        $thirdChoice->setProposal($newQuestion);
 
         $newQuestion->setGoodAnswer($thirdChoice);
 
@@ -500,6 +514,7 @@ class CreateQuestions extends Command
         $this->entityManagerInterface->persist($newQuestion);
         $this->entityManagerInterface->persist($oneChoice);
         $this->entityManagerInterface->persist($secondChoice);
+        $this->entityManagerInterface->persist($thirdChoice);
         $this->entityManagerInterface->persist($oneRarety);
         $this->entityManagerInterface->persist($oneCard);
         
@@ -541,7 +556,7 @@ class CreateQuestions extends Command
         $oneChoice->setQuestion($newQuestion);
         $secondChoice->setQuestion($newQuestion);
         $oneChoice->setProposal($newQuestion);
-        $secondChoice->setProposal($newQuestion);
+        $thirdChoice->setProposal($newQuestion);
 
         $newQuestion->setGoodAnswer($secondChoice);
 
@@ -549,6 +564,7 @@ class CreateQuestions extends Command
         $this->entityManagerInterface->persist($newQuestion);
         $this->entityManagerInterface->persist($oneChoice);
         $this->entityManagerInterface->persist($secondChoice);
+        $this->entityManagerInterface->persist($thirdChoice);
         $this->entityManagerInterface->persist($oneRarety);
         $this->entityManagerInterface->persist($oneCard);
         
@@ -588,7 +604,7 @@ class CreateQuestions extends Command
         $oneChoice->setQuestion($newQuestion);
         $secondChoice->setQuestion($newQuestion);
         $oneChoice->setProposal($newQuestion);
-        $secondChoice->setProposal($newQuestion);
+        $thirdChoice->setProposal($newQuestion);
 
         $newQuestion->setGoodAnswer($thirdChoice);
 
@@ -596,6 +612,7 @@ class CreateQuestions extends Command
         $this->entityManagerInterface->persist($newQuestion);
         $this->entityManagerInterface->persist($oneChoice);
         $this->entityManagerInterface->persist($secondChoice);
+        $this->entityManagerInterface->persist($thirdChoice);
         $this->entityManagerInterface->persist($oneRarety);
         $this->entityManagerInterface->persist($oneCard);
         
@@ -640,7 +657,7 @@ class CreateQuestions extends Command
         $oneChoice->setQuestion($newQuestion);
         $secondChoice->setQuestion($newQuestion);
         $oneChoice->setProposal($newQuestion);
-        $secondChoice->setProposal($newQuestion);
+        $thirdChoice->setProposal($newQuestion);
 
         $newQuestion->setGoodAnswer($oneChoice);
 
@@ -648,6 +665,7 @@ class CreateQuestions extends Command
         $this->entityManagerInterface->persist($newQuestion);
         $this->entityManagerInterface->persist($oneChoice);
         $this->entityManagerInterface->persist($secondChoice);
+        $this->entityManagerInterface->persist($thirdChoice);
         $this->entityManagerInterface->persist($oneRarety);
         $this->entityManagerInterface->persist($oneCard);
         
@@ -688,7 +706,7 @@ class CreateQuestions extends Command
         $oneChoice->setQuestion($newQuestion);
         $secondChoice->setQuestion($newQuestion);
         $oneChoice->setProposal($newQuestion);
-        $secondChoice->setProposal($newQuestion);
+        $thirdChoice->setProposal($newQuestion);
 
         $newQuestion->setGoodAnswer($oneChoice);
 
@@ -696,6 +714,7 @@ class CreateQuestions extends Command
         $this->entityManagerInterface->persist($newQuestion);
         $this->entityManagerInterface->persist($oneChoice);
         $this->entityManagerInterface->persist($secondChoice);
+        $this->entityManagerInterface->persist($thirdChoice);
         $this->entityManagerInterface->persist($oneRarety);
         $this->entityManagerInterface->persist($oneCard);
         
