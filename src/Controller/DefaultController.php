@@ -11,8 +11,11 @@ class DefaultController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(): Response
     {
-        return $this->render('default/index.html.twig', [
-            'controller_name' => 'DefaultController',
-        ]);
+        return $this->render('default/index.html.twig');
+    }
+    #[Route('/presentation', name: 'app_presentation')]
+    public function presentation(): Response
+    {
+        return $this->render('default/presentation.html.twig');
     }
 }

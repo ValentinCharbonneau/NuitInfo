@@ -3,13 +3,13 @@
 {% block title %}Sidamon{% endblock %}
 
 {% block body %}
-<div class="px-4 py-5 my-5 text-center">
+<div class="py-5 my-5 text-center">
     <img class="img-fluid d-block mx-auto mb-3" src="{{ asset("images/logo.png") }}" alt="" width="500">
     {# <h1 class="display-5 fw-bold">Centered hero</h1> #}
     <p class="lead">Attrapez-les toutes ! (non)</p>
     <div class="mt-4 d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Jouer !</button>
-        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Késako ?</button>
+        <a href="#" class="btn btn-primary btn-lg px-4 gap-3">Jouer !</a>
+        <a href="{{ path("app_presentation") }}" class="btn btn-outline-secondary btn-lg px-4">Késako ?</a>
     </div>
 </div>
 {% endblock %}
