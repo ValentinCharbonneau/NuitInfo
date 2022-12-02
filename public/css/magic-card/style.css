@@ -1,313 +1,313 @@
 :root {
-  --color1: rgb(0, 231, 255);
-  --color2: rgb(255, 0, 231);
+  --color1: rgb(0, 231, 255) !important;
+  --color2: rgb(255, 0, 231) !important;
 
 }
 
 .cont {
-  display: flex;
-  text-align:center;
-  flex-direction: row;
+  display: flex !important;
+  text-align:center !important;
+  flex-direction: row !important;
 }
 
 
 
 .card {
-  width: 25vw;
-  height: 40vw;
-  overflow: hidden;
-  overflow: hidden;
-  z-index: 10;
-  touch-action: none;
-  border-radius: 5%/3.5%;
-  box-shadow: -5px -5px 5px -5px var(--color1), 5px 5px 5px -5px var(--color1), -7px -7px 10px -5px transparent, 7px 7px 10px -5px transparent, 0 0 5px 0px rgba(--color1), 0 55px 35px -20px rgba(--color1);
-  transition: transform 0.5s ease, box-shadow 0.2s ease;
-  will-change: transform, filter;
-  background-color: #040712;
-  background-image: var(--front);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  transform-origin: center;
+  width: 25vw !important;
+  height: 40vw !important;
+  overflow: hidden !important;
+  overflow: hidden !important;
+  z-index: 10 !important;
+  touch-action: none !important;
+  border-radius: 5%/3.5% !important;
+  box-shadow: -5px -5px 5px -5px var(--color1), 5px 5px 5px -5px var(--color1), -7px -7px 10px -5px transparent, 7px 7px 10px -5px transparent, 0 0 5px 0px rgba(--color1), 0 55px 35px -20px rgba(--color1) !important;
+  transition: transform 0.5s ease, box-shadow 0.2s ease !important;
+  will-change: transform, filter !important;
+  background-color: #040712 !important;
+  background-image: var(--front) !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: 50% 50% !important;
+  transform-origin: center !important;
 }
 .card {
-    width: clamp(25vw);
-    height: clamp(40vw);
+    width: clamp(25vw) !important;
+    height: clamp(40vw) !important;
 }
 
 .card:hover {
-  box-shadow: -20px -20px 30px -25px var(--color1), 20px 20px 30px -25px var(--color1), -7px -7px 10px -5px var(--color1), 7px 7px 10px -5px var(--color1), 0 0 13px 4px rgba(255, 255, 255, 0.3), 0 55px 35px -20px rgba(0, 0, 0, 0.5);
+  box-shadow: -20px -20px 30px -25px var(--color1), 20px 20px 30px -25px var(--color1), -7px -7px 10px -5px var(--color1), 7px 7px 10px -5px var(--color1), 0 0 13px 4px rgba(255, 255, 255, 0.3), 0 55px 35px -20px rgba(0, 0, 0, 0.5) !important;
 }
 
 
 .card.legendaire {
-  --color1: #9dff00;
+  --color1: #9dff00 !important;
 }
 
 .card.rare {
-  --color1: #2200ff;
+  --color1: #2200ff !important;
 }
 
 .card.courant {
-  --color1: #ec9bb6;
-  --color2: #ccac6f;
+  --color1: #ec9bb6 !important;
+  --color2: #ccac6f !important;
 
 }
 
 .card:before,
 .card:after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  background-repeat: no-repeat;
-  opacity: 0.5;
-  mix-blend-mode: color-dodge;
-  transition: all 0.33s ease;
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  top: 0 !important;
+  background-repeat: no-repeat !important;
+  opacity: 0.5 !important;
+  mix-blend-mode: color-dodge !important;
+  transition: all 0.33s ease !important;
 }
 
 .card:before {
-  background-position: 50% 50%;
-  background-size: 300% 300%;
-  background-image: linear-gradient(115deg, transparent 0%, var(--color1) 25%, transparent 47%, transparent 53%, var(--color2) 75%, transparent 100%);
-  opacity: 0.5;
-  filter: brightness(0.5) contrast(1);
-  z-index: 1;
+  background-position: 50% 50% !important;
+  background-size: 300% 300% !important;
+  background-image: linear-gradient(115deg, transparent 0%, var(--color1) 25%, transparent 47%, transparent 53%, var(--color2) 75%, transparent 100%) !important;
+  opacity: 0.5 !important;
+  filter: brightness(0.5) contrast(1) !important;
+  z-index: 1 !important;
 }
 
 .card:after {
-  opacity: 1;
-  background-image: url("https://assets.codepen.io/13471/sparkles.gif") linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
-  background-position: 50% 50%;
-  background-size: 160%;
-  background-blend-mode: overlay;
-  z-index: 2;
-  filter: brightness(1) contrast(1);
-  transition: all 0.33s ease;
-  mix-blend-mode: color-dodge;
-  opacity: 0.75;
+  opacity: 1 !important;
+  background-image: url("https://assets.codepen.io/13471/sparkles.gif") linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%) !important;
+  background-position: 50% 50% !important;
+  background-size: 160% !important;
+  background-blend-mode: overlay !important;
+  z-index: 2 !important;
+  filter: brightness(1) contrast(1) !important;
+  transition: all 0.33s ease !important;
+  mix-blend-mode: color-dodge !important;
+  opacity: 0.75 !important;
 }
 
 .card.active:after,
 .card:hover:after {
-  filter: brightness(1) contrast(1);
-  opacity: 1;
+  filter: brightness(1) contrast(1) !important;
+  opacity: 1 !important;
 }
 
 .card.active,
 .card:hover {
-  -webkit-animation: none;
-          animation: none;
-  transition: box-shadow 0.1s ease-out;
+  -webkit-animation: none !important;
+          animation: none !important;
+  transition: box-shadow 0.1s ease-out !important;
 }
 
 .card.active:before,
 .card:hover:before {
-  -webkit-animation: none;
-          animation: none;
-  background-image: linear-gradient(110deg, transparent 25%, var(--color1) 48%, var(--color2) 52%, transparent 75%);
-  background-position: 50% 50%;
-  background-size: 250% 250%;
-  opacity: 0.88;
-  filter: brightness(0.66) contrast(1.33);
-  transition: none;
+  -webkit-animation: none !important;
+          animation: none !important;
+  background-image: linear-gradient(110deg, transparent 25%, var(--color1) 48%, var(--color2) 52%, transparent 75%) !important;
+  background-position: 50% 50% !important;
+  background-size: 250% 250% !important;
+  opacity: 0.88 !important;
+  filter: brightness(0.66) contrast(1.33) !important;
+  transition: none !important;
 }
 
 .card.active:before,
 .card:hover:before,
 .card.active:after,
 .card:hover:after {
-  -webkit-animation: none;
-          animation: none;
-  transition: none;
+  -webkit-animation: none !important;
+          animation: none !important;
+  transition: none !important;
 }
 
 .card.animated {
-  transition: none;
-  -webkit-animation: holoCard 12s ease 0s 1;
-          animation: holoCard 12s ease 0s 1;
+  transition: none !important;
+  -webkit-animation: holoCard 12s ease 0s 1 !important;
+          animation: holoCard 12s ease 0s 1 !important;
 }
 .card.animated:before {
-  transition: none;
-  -webkit-animation: holoGradient 12s ease 0s 1;
-          animation: holoGradient 12s ease 0s 1;
+  transition: none !important;
+  -webkit-animation: holoGradient 12s ease 0s 1 !important;
+          animation: holoGradient 12s ease 0s 1 !important;
 }
 .card.animated:after {
-  transition: none;
-  -webkit-animation: holoSparkle 12s ease 0s 1;
-          animation: holoSparkle 12s ease 0s 1;
+  transition: none !important;
+  -webkit-animation: holoSparkle 12s ease 0s 1 !important;
+          animation: holoSparkle 12s ease 0s 1 !important;
 }
 
 @-webkit-keyframes holoSparkle {
   0%, 100% {
-    opacity: 0.75;
-    background-position: 50% 50%;
-    filter: brightness(1.2) contrast(1.25);
+    opacity: 0.75 !important;
+    background-position: 50% 50% !important;
+    filter: brightness(1.2) contrast(1.25) !important;
   }
   5%, 8% {
-    opacity: 1;
-    background-position: 40% 40%;
-    filter: brightness(0.8) contrast(1.2);
+    opacity: 1 !important;
+    background-position: 40% 40% !important;
+    filter: brightness(0.8) contrast(1.2) !important;
   }
   13%, 16% {
-    opacity: 0.5;
-    background-position: 50% 50%;
-    filter: brightness(1.2) contrast(0.8);
+    opacity: 0.5 !important;
+    background-position: 50% 50% !important;
+    filter: brightness(1.2) contrast(0.8) !important;
   }
   35%, 38% {
-    opacity: 1;
-    background-position: 60% 60%;
-    filter: brightness(1) contrast(1);
+    opacity: 1 !important;
+    background-position: 60% 60% !important;
+    filter: brightness(1) contrast(1) !important;
   }
   55% {
-    opacity: 0.33;
-    background-position: 45% 45%;
-    filter: brightness(1.2) contrast(1.25);
+    opacity: 0.33 !important;
+    background-position: 45% 45% !important;
+    filter: brightness(1.2) contrast(1.25) !important;
   }
 }
 
 @keyframes holoSparkle {
   0%, 100% {
-    opacity: 0.75;
-    background-position: 50% 50%;
-    filter: brightness(1.2) contrast(1.25);
+    opacity: 0.75 !important;
+    background-position: 50% 50% !important;
+    filter: brightness(1.2) contrast(1.25) !important;
   }
   5%, 8% {
-    opacity: 1;
-    background-position: 40% 40%;
-    filter: brightness(0.8) contrast(1.2);
+    opacity: 1 !important;
+    background-position: 40% 40% !important;
+    filter: brightness(0.8) contrast(1.2) !important;
   }
   13%, 16% {
-    opacity: 0.5;
-    background-position: 50% 50%;
-    filter: brightness(1.2) contrast(0.8);
+    opacity: 0.5 !important;
+    background-position: 50% 50% !important;
+    filter: brightness(1.2) contrast(0.8) !important;
   }
   35%, 38% {
-    opacity: 1;
-    background-position: 60% 60%;
-    filter: brightness(1) contrast(1);
+    opacity: 1 !important;
+    background-position: 60% 60% !important;
+    filter: brightness(1) contrast(1) !important;
   }
   55% {
-    opacity: 0.33;
-    background-position: 45% 45%;
-    filter: brightness(1.2) contrast(1.25);
+    opacity: 0.33 !important;
+    background-position: 45% 45% !important;
+    filter: brightness(1.2) contrast(1.25) !important;
   }
 }
 @-webkit-keyframes holoGradient {
   0%, 100% {
-    opacity: 0.5;
-    background-position: 50% 50%;
-    filter: brightness(0.5) contrast(1);
+    opacity: 0.5 !important;
+    background-position: 50% 50% !important;
+    filter: brightness(0.5) contrast(1) !important;
   }
   5%, 9% {
-    background-position: 100% 100%;
-    opacity: 1;
-    filter: brightness(0.75) contrast(1.25);
+    background-position: 100% 100% !important;
+    opacity: 1 !important;
+    filter: brightness(0.75) contrast(1.25) !important;
   }
   13%, 17% {
-    background-position: 0% 0%;
-    opacity: 0.88;
+    background-position: 0% 0% !important;
+    opacity: 0.88 !important;
   }
   35%, 39% {
-    background-position: 100% 100%;
-    opacity: 1;
-    filter: brightness(0.5) contrast(1);
+    background-position: 100% 100% !important;
+    opacity: 1 !important;
+    filter: brightness(0.5) contrast(1) !important;
   }
   55% {
-    background-position: 0% 0%;
-    opacity: 1;
-    filter: brightness(0.75) contrast(1.25);
+    background-position: 0% 0% !important;
+    opacity: 1 !important;
+    filter: brightness(0.75) contrast(1.25) !important;
   }
 }
 @keyframes holoGradient {
   0%, 100% {
-    opacity: 0.5;
-    background-position: 50% 50%;
-    filter: brightness(0.5) contrast(1);
+    opacity: 0.5 !important;
+    background-position: 50% 50% !important;
+    filter: brightness(0.5) contrast(1) !important;
   }
   5%, 9% {
-    background-position: 100% 100%;
-    opacity: 1;
-    filter: brightness(0.75) contrast(1.25);
+    background-position: 100% 100% !important;
+    opacity: 1 !important;
+    filter: brightness(0.75) contrast(1.25) !important;
   }
   13%, 17% {
-    background-position: 0% 0%;
-    opacity: 0.88;
+    background-position: 0% 0% !important;
+    opacity: 0.88 !important;
   }
   35%, 39% {
-    background-position: 100% 100%;
-    opacity: 1;
-    filter: brightness(0.5) contrast(1);
+    background-position: 100% 100% !important;
+    opacity: 1 !important;
+    filter: brightness(0.5) contrast(1) !important;
   }
   55% {
-    background-position: 0% 0%;
-    opacity: 1;
-    filter: brightness(0.75) contrast(1.25);
+    background-position: 0% 0% !important;
+    opacity: 1 !important;
+    filter: brightness(0.75) contrast(1.25) !important;
   }
 }
 @-webkit-keyframes holoCard {
   0%, 100% {
-    transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+    transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg) !important;
   }
   5%, 8% {
-    transform: rotateZ(0deg) rotateX(6deg) rotateY(-20deg);
+    transform: rotateZ(0deg) rotateX(6deg) rotateY(-20deg) !important;
   }
   13%, 16% {
-    transform: rotateZ(0deg) rotateX(-9deg) rotateY(32deg);
+    transform: rotateZ(0deg) rotateX(-9deg) rotateY(32deg) !important;
   }
   35%, 38% {
-    transform: rotateZ(3deg) rotateX(12deg) rotateY(20deg);
+    transform: rotateZ(3deg) rotateX(12deg) rotateY(20deg) !important;
   }
   55% {
-    transform: rotateZ(-3deg) rotateX(-12deg) rotateY(-27deg);
+    transform: rotateZ(-3deg) rotateX(-12deg) rotateY(-27deg) !important;
   }
 }
 @keyframes holoCard {
   0%, 100% {
-    transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+    transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg) !important;
   }
   5%, 8% {
-    transform: rotateZ(0deg) rotateX(6deg) rotateY(-20deg);
+    transform: rotateZ(0deg) rotateX(6deg) rotateY(-20deg) !important;
   }
   13%, 16% {
-    transform: rotateZ(0deg) rotateX(-9deg) rotateY(32deg);
+    transform: rotateZ(0deg) rotateX(-9deg) rotateY(32deg) !important;
   }
   35%, 38% {
-    transform: rotateZ(3deg) rotateX(12deg) rotateY(20deg);
+    transform: rotateZ(3deg) rotateX(12deg) rotateY(20deg) !important;
   }
   55% {
-    transform: rotateZ(-3deg) rotateX(-12deg) rotateY(-27deg);
+    transform: rotateZ(-3deg) rotateX(-12deg) rotateY(-27deg) !important;
   }
 }
 .card.eevee:hover {
-  box-shadow: 0 0 30px -5px white, 0 0 10px -2px white, 0 55px 35px -20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 30px -5px white, 0 0 10px -2px white, 0 55px 35px -20px rgba(0, 0, 0, 0.5) !important;
 }
 
 .card.eevee:hover:before,
 .card.eevee.active:before {
-  background-image: linear-gradient(115deg, transparent 20%, var(--color1) 36%, var(--color2) 43%, var(--color3) 50%, var(--color4) 57%, var(--color5) 64%, transparent 80%);
+  background-image: linear-gradient(115deg, transparent 20%, var(--color1) 36%, var(--color2) 43%, var(--color3) 50%, var(--color4) 57%, var(--color5) 64%, transparent 80%) !important;
 }
 
 .demo .card {
-  background-image: var(--back);
-  font-size: 2vh;
+  background-image: var(--back) !important;
+  font-size: 2vh !important;
 }
 
 .demo .card > span {
-  position: relative;
-  top: 45%;
+  position: relative !important;
+  top: 45% !important;
 }
 
 .demo .card:nth-of-type(1),
 .demo .card:nth-of-type(2),
 .demo .card:nth-of-type(3) {
-  width: 20vh;
-  height: 27.5vh;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4), 0 25px 15px -10px rgba(0, 0, 0, 0.5);
-  -webkit-animation: none;
-          animation: none;
+  width: 20vh !important;
+  height: 27.5vh !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4), 0 25px 15px -10px rgba(0, 0, 0, 0.5) !important;
+  -webkit-animation: none !important;
+          animation: none !important;
 }
 
 .demo .card:nth-of-type(1):before, .demo .card:nth-of-type(1):after,
@@ -315,122 +315,122 @@
 .demo .card:nth-of-type(2):after,
 .demo .card:nth-of-type(3):before,
 .demo .card:nth-of-type(3):after {
-  -webkit-animation: none;
-          animation: none;
+  -webkit-animation: none !important;
+          animation: none !important;
 }
 
 .demo .card:nth-of-type(1):before, .demo .card:nth-of-type(1):after {
-  display: none;
+  display: none !important;
 }
 
 .demo .card:nth-of-type(2) {
-  background: none;
+  background: none !important;
 }
 .demo .card:nth-of-type(2):before {
-  display: none;
+  display: none !important;
 }
 
 .demo .card:nth-of-type(3) {
-  background: none;
+  background: none !important;
 }
 .demo .card:nth-of-type(3):after {
-  display: none;
+  display: none !important;
 }
 
 .operator {
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 6vh;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  font-size: 6vh !important;
 }
 
 html, body {
-  height: 100%;
-  background-color: #333844;
-  padding: 0;
-  z-index: 1;
-  transform: translate3d(0, 0, 0.1px);
+  height: 100% !important;
+  background-color: #333844 !important;
+  padding: 0 !important;
+  z-index: 1 !important;
+  transform: translate3d(0, 0, 0.1px) !important;
 }
 
 .card{
-  color: white;
-  font-family: "Heebo", sans-serif;
-  text-align: center;
+  color: white !important;
+  font-family: "Heebo", sans-serif !important;
+  text-align: center !important;
 }
 
 h1 {
-  display: block;
-  margin: 30px 0;
+  display: block !important;
+  margin: 30px 0 !important;
 }
 
 p {
-  margin-top: 5px;
-  font-weight: 200;
+  margin-top: 5px !important;
+  font-weight: 200 !important;
 }
 
 #app {
-  position: relative;
+  position: relative !important;
 }
 
 .demo,
 .cards {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  perspective: 2000px;
-  position: relative;
-  z-index: 1;
-  transform: translate3d(0.1px, 0.1px, 0.1px);
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: space-evenly !important;
+  perspective: 2000px !important;
+  position: relative !important;
+  z-index: 1 !important;
+  transform: translate3d(0.1px, 0.1px, 0.1px) !important;
 }
 
 .demo {
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: row !important;
+  justify-content: center !important;
 }
 
 @media screen and (min-width: 600px) {
   .cards {
-    flex-direction: row;
+    flex-direction: row !important;
   }
 }
 .cards .card:nth-child(2), .cards .card:nth-child(2):before, .cards .card:nth-child(2):after {
-  -webkit-animation-delay: 0.25s;
-          animation-delay: 0.25s;
+  -webkit-animation-delay: 0.25s !important;
+          animation-delay: 0.25s !important;
 }
 .cards .card:nth-child(3), .cards .card:nth-child(3):before, .cards .card:nth-child(3):after {
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
+  -webkit-animation-delay: 0.5s !important;
+          animation-delay: 0.5s !important;
 }
 .cards .card:nth-child(4), .cards .card:nth-child(4):before, .cards .card:nth-child(4):after {
-  -webkit-animation-delay: 0.75s;
-          animation-delay: 0.75s;
+  -webkit-animation-delay: 0.75s !important;
+          animation-delay: 0.75s !important;
 }
 
 p {
-  font-weight: 400;
-  font-size: 18px;
-  padding: 1em;
-  background: rgba(0, 0, 0, 0.3);
-  margin-top: 0;
+  font-weight: 400 !important;
+  font-size: 18px !important;
+  padding: 1em !important;
+  background: rgba(0, 0, 0, 0.3) !important;
+  margin-top: 0 !important;
 }
 
 p.bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin-bottom: 0;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 p a {
-  color: cyan;
+  color: cyan !important;
 }
 
 html, body, main {
-  min-height: 100%;
+  min-height: 100% !important;
 }
 
 
 .cont .red{
-  color: red;
+  color: red !important;
 }

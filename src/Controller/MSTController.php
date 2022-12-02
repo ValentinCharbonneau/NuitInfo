@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\MST;
 use App\Form\MSTType;
 use App\Repository\MSTRepository;
@@ -14,10 +15,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class MSTController extends AbstractController
 {
     #[Route('/', name: 'app_m_s_t_index', methods: ['GET'])]
-    public function index(MSTRepository $mSTRepository): Response
+    public function index(ManagerRegistry $doctrine): Response
     {
-        return $this->render('mst/index.html.twig', [
-            'm_s_ts' => $mSTRepository->findAll(),
+        $mst = $doctrine->getRepository(MST::class)->findAll();
+
+
+        return $this->render('default/index.html.twig', [
+            "mst" => $mst
         ]);
     }
 

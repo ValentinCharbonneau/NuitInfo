@@ -1,13 +1,17 @@
-<section class="cards">
-    <div class="card courant animated">
-      <img src="img/Chlamydia_pixel-removebg-preview.png" alt="">
-      <h1>{{ mst.name }}</h1>
-      <p>{{ mst.description }}</p>
-      <div class="cont">
-        <p class="red">{{ mst.mortality }}</p>
-        <p>{{ mst.symptom }}</p>
-      </div>
-      <p>{{ mst.transmission }}</p>
-      <p>{{ mst.treatment }}</p>
-    </div>
+ <main id="app">
+ {# {% for mst in mst %} #}
+  <section class="cards">
+        <div class="card courant animated">
+        <img src="img/{{mst.name}}.png" alt="">
+        <h1>{{ mst.name }}</h1>
+        <p>{{ mst.description }}</p>
+        <div class="cont">
+          <p class="red">{{ mst.mortality }}</p>
+          <p>{{ mst.symptom }}</p>
+        </div>
+        <p>{{ mst.transmission }}</p>
+        <p>{{ mst.treatment }}</p>
+      </div> 
   </section>
+  {# {% endfor %} #}
+</main>
