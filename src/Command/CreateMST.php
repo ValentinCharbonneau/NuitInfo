@@ -33,31 +33,67 @@ class CreateMST extends Command
     {
         $newMST = new MST();
         $newMST->setName('Sida');
-        $newMST->setDescription("Le syndrome d'immunodéficience acquise, plus connu sous son acronyme SIDA, est un ensemble de symptômes consécutifs à la destruction de cellules du système immunitaire par le virus de l'immunodéficience humaine (VIH). Le SIDA est le dernier stade de l'infection au VIH, lorsque l'immunodépression est sévère.");
+        $newMST->setDescription("La MST la plus mortelle numéro 1, baisse défense immunitaire.");
+        $newMST->setTransmission('Voie sexuelle, sanguine, héréditaire.');
+        $newMST->setSymptom('Défenses immunitaires très affaiblies.');
+        $newMST->setTreatment('Il existe un traitement.');
+        $newMST->setMortality(76.0);
         $this->entityManagerInterface->persist($newMST);
         $this->entityManagerInterface->flush();
 
         $newMST = new MST();
-        $newMST->setName('Trichomonase');
-        $newMST->setDescription("La trichomonase ou trichomonose urogénitale est une maladie infectieuse causée par le parasite Trichomonas vaginalis. Environ 70 % des femmes et des hommes ne présentent aucun symptôme lorsqu'ils sont infectés. Lorsque les symptômes apparaissent, ils commencent généralement 5 à 28 jours après l'exposition. Les symptômes peuvent inclure des démangeaisons dans la région génitale, une mauvaise odeur de la sécrétion vaginale, des sensations de brûlure lors de la miction et une douleur lors des rapports sexuels.");
+        $newMST->setName('Hépatite B');
+        $newMST->setDescription("Parmi les 10 virus les plus meurtriers au monde.");
+        $newMST->setTransmission('Voie sexuelle, voie sanguine, tatouage ou piercing avec matériel mal stérilisé.');
+        $newMST->setSymptom('Inflammation du foie.');
+        $newMST->setTreatment('vaccination');
+        $newMST->setMortality(0.3);
         $this->entityManagerInterface->persist($newMST);
         $this->entityManagerInterface->flush();
 
         $newMST = new MST();
-        $newMST->setName('Chlamydia');
-        $newMST->setDescription("Les chlamydies (Chlamydia) forment un genre de bactéries de la famille des Chlamydiaceae. Tout comme les rickettsies, les chlamydies sont des bactéries parasites intracellulaires obligatoires et de petite taille (300-500 nm). Elles sont responsables de diverses maladies chez les animaux dont les humains.");
-        $this->entityManagerInterface->persist($newMST);
-        $this->entityManagerInterface->flush();
-
-        $newMST = new MST();
-        $newMST->setName('Morpion');
-        $newMST->setDescription("Il diffère des poux standards (Pediculus humanus capitis ou « pou de tête » et Pediculus humanus ou « pou de corps ») par sa morphologie et sa résidence. Le morpion est un petit insecte trapu, long de 2 à 3 mm ressemblant à un crabe : il possède un thorax très large portant des pattes puissantes à pseudo-pinces énormes (plus fortes que celles du pou de tête) et un abdomen court et étroit.");
+        $newMST->setName('Herpès');
+        $newMST->setDescription("La MST la plus mortelle numéro 1, baisse défense immunitaire.");
+        $newMST->setTransmission('Relations sexuelles.');
+        $newMST->setSymptom('Provoque des boutons de fièvre ou d’autres maladies touchant la peau.');
+        $newMST->setTreatment('Impossible de s’en débarrasser, le virus réapparaît sous forme de poussées.');
+        $newMST->setMortality(12.0);
         $this->entityManagerInterface->persist($newMST);
         $this->entityManagerInterface->flush();
 
         $newMST = new MST();
         $newMST->setName('Syphilis');
-        $newMST->setDescription("La syphilis (connue familièrement sous le nom de vérole ou encore de grande vérole par opposition à la variole) est une infection sexuellement transmissible contagieuse, due à la bactérie Treponema pallidum (ou tréponème pâle).");
+        $newMST->setDescription("La MST la plus mortelle numéro 1, baisse défense immunitaire.");
+        $newMST->setTransmission('Par voie sexuelles.');
+        $newMST->setSymptom('Défenses immunitaires très affaiblies.');
+        $newMST->setTreatment('il existe un traitement');
+        $this->entityManagerInterface->persist($newMST);
+        $this->entityManagerInterface->flush();
+
+        $newMST = new MST();
+        $newMST->setName('Sida');
+        $newMST->setDescription("La MST la plus mortelle numéro 1, baisse défense immunitaire.");
+        $newMST->setTransmission('Voie sexuelle, sanguine, héréditaire.');
+        $newMST->setSymptom('Défenses immunitaires très affaiblies.');
+        $newMST->setTreatment('il existe un traitement');
+        $this->entityManagerInterface->persist($newMST);
+        $this->entityManagerInterface->flush();
+
+        $newMST = new MST();
+        $newMST->setName('Sida');
+        $newMST->setDescription("La MST la plus mortelle numéro 1, baisse défense immunitaire.");
+        $newMST->setTransmission('Voie sexuelle, sanguine, héréditaire.');
+        $newMST->setSymptom('Défenses immunitaires très affaiblies.');
+        $newMST->setTreatment('il existe un traitement');
+        $this->entityManagerInterface->persist($newMST);
+        $this->entityManagerInterface->flush();
+
+        $newMST = new MST();
+        $newMST->setName('Sida');
+        $newMST->setDescription("La MST la plus mortelle numéro 1, baisse défense immunitaire.");
+        $newMST->setTransmission('Voie sexuelle, sanguine, héréditaire.');
+        $newMST->setSymptom('Défenses immunitaires très affaiblies.');
+        $newMST->setTreatment('il existe un traitement');
         $this->entityManagerInterface->persist($newMST);
         $this->entityManagerInterface->flush();
 

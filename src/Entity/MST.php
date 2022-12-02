@@ -51,6 +51,25 @@ class MST
     #[ORM\OneToMany(mappedBy: 'MST', targetEntity: Testimony::class)]
     private Collection $testimonies;
 
+    #[ORM\Column(nullable: true)]
+    #[Groups(['mst:read'])]
+    private ?float $mortality = null;
+
+    #[ORM\OneToMany(mappedBy: 'idMST', targetEntity: Cards::class)]
+    private Collection $cards;
+
+    #[ORM\Column(length: 255)]
+    #[Groups(['mst:read'])]
+    private ?string $transmission = null;
+
+    #[ORM\Column(Types::TEXT)]
+    #[Groups(['mst:read'])]
+    private ?string $symptom = null;
+
+    #[ORM\Column(length: 255)]
+    #[Groups(['mst:read'])]
+    private ?string $treatment = null;
+
     public function __construct()
     {
         $this->testimonies = new ArrayCollection();
@@ -111,6 +130,84 @@ class MST
                 $testimony->setMST(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMortality(): ?float
+    {
+        return $this->mortality;
+    }
+
+    public function setMortality(?float $mortality): self
+    {
+        $this->mortality = $mortality;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Cards>
+     */
+    public function getCards(): Collection
+    {
+        return $this->cards;
+    }
+
+    public function addCard(Cards $card): self
+    {
+        if (!$this->cards->contains($card)) {
+            $this->cards->add($card);
+            $card->setIdMST($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCard(Cards $card): self
+    {
+        if ($this->cards->removeElement($card)) {
+            // set the owning side to null (unless already changed)
+            if ($card->getIdMST() === $this) {
+                $card->setIdMST(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getTransmission(): ?string
+    {
+        return $this->transmission;
+    }
+
+    public function setTransmission(string $transmission): self
+    {
+        $this->transmission = $transmission;
+
+        return $this;
+    }
+
+    public function getSymptom(): ?string
+    {
+        return $this->symptom;
+    }
+
+    public function setSymptom(string $symptom): self
+    {
+        $this->symptom = $symptom;
+
+        return $this;
+    }
+
+    public function getTreatment(): ?string
+    {
+        return $this->treatment;
+    }
+
+    public function setTreatment(string $treatment): self
+    {
+        $this->treatment = $treatment;
 
         return $this;
     }
